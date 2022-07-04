@@ -21,6 +21,7 @@ const UserLayout = (props: Required<DefaultProps>) => {
           type: 'light',
         },
       ]}
+      // footer={true}
       api="/api/login"
       btnProps={{ type: 'dark' }}
       saveField={{

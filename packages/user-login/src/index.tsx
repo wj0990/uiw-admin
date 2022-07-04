@@ -169,16 +169,19 @@ export default (props: UserLoginProps) => {
   }
 
   const FooterRender = React.useMemo(() => {
-    if (footer === false || footer === '') {
+    if (!footer) {
       return null;
-    } else if (footer === true) {
-      return (
-        <div className="copyright-footer">
-          版权所有 copyright &copy; 2022 uiw admin
-        </div>
-      );
+    } else {
+      if (React.isValidElement(footer)) {
+        return footer;
+      } else {
+        return (
+          <div className="copyright-footer">
+            {footer === true ? '版权所有 copyright © 2022 uiw admin' : footer}
+          </div>
+        );
+      }
     }
-    return footer;
   }, []);
 
   return (
